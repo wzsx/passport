@@ -70,35 +70,35 @@ class CartController extends Controller
                 return $response;
             }
             //var_dump($res1);
-//        }else{
-//            $new_num=$res['goods_num']+$goods_num;
-//            //echo $new_num;exit;
-//            if($new_num>$store){
-//                $response=[
-//                    'errcode'=>50001,
-//                    'msg'=>'库存不足'
-//                ];
-//                return $response;
-//            }else{
-//                $updateWhere=[
-//                    'goods_num'=>$new_num,
-//                    'add_time'=>time()
-//                ];
-//                $res2=CartModel::where($where)->update($updateWhere);
-//                if($res2){
-//                    $response=[
-//                        'errcode'=>0,
-//                        'msg'=>'添加成功'
-//                    ];
-//                    return $response;
-//                }else{
-//                    $response=[
-//                        'errcode'=>5001,
-//                        'msg'=>'添加失败'
-//                    ];
-//                    return $response;
-//                }
-//            }
+        }else{
+            $new_num=$res['goods_num']+$goods_num;
+            //echo $new_num;exit;
+            if($new_num>$store){
+                $response=[
+                    'errcode'=>50001,
+                    'msg'=>'库存不足'
+                ];
+                return $response;
+            }else{
+                $updateWhere=[
+                    'goods_num'=>$new_num,
+                    'add_time'=>time()
+                ];
+                $res2=CartModel::where($where)->update($updateWhere);
+                if($res2){
+                    $response=[
+                        'errcode'=>0,
+                        'msg'=>'添加成功'
+                    ];
+                    return $response;
+                }else{
+                    $response=[
+                        'errcode'=>5001,
+                        'msg'=>'添加失败'
+                    ];
+                    return $response;
+                }
+            }
         }
     }
 }
