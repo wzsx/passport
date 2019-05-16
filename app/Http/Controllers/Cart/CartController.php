@@ -48,57 +48,57 @@ class CartController extends Controller
         }
         $res=CartModel::where($where)->first();
         //var_dump($res);
-        if(empty($res)){
-            $data=[
-                'goods_id'=>$goods_id,
-                'goods_num'=>$goods_num,
-                'uid'=>$user_id,
-                'add_time'=>time(),
+        if(empty($res)) {
+            $data = [
+                'goods_id' => $goods_id,
+                'goods_num' => $goods_num,
+                'uid' => $user_id,
+                'add_time' => time(),
             ];
-            $res1=CartModel::insert($data);
-            if($res1){
-                $response=[
-                    'errcode'=>0,
-                    'msg'=>'添加成功'
+            $res1 = CartModel::insert($data);
+            if ($res1) {
+                $response = [
+                    'errcode' => 0,
+                    'msg' => '添加成功'
                 ];
                 return $response;
-            }else{
-                $response=[
-                    'errcode'=>5001,
-                    'msg'=>'添加失败'
+            } else {
+                $response = [
+                    'errcode' => 5001,
+                    'msg' => '添加失败'
                 ];
                 return $response;
             }
             //var_dump($res1);
-        }else{
-            $new_num=$res['goods_num']+$goods_num;
-            //echo $new_num;exit;
-            if($new_num>$store){
-                $response=[
-                    'errcode'=>50001,
-                    'msg'=>'库存不足'
-                ];
-                return $response;
-            }else{
-                $updateWhere=[
-                    'goods_num'=>$new_num,
-                    'add_time'=>time()
-                ];
-                $res2=CartModel::where($where)->update($updateWhere);
-                if($res2){
-                    $response=[
-                        'errcode'=>0,
-                        'msg'=>'添加成功'
-                    ];
-                    return $response;
-                }else{
-                    $response=[
-                        'errcode'=>5001,
-                        'msg'=>'添加失败'
-                    ];
-                    return $response;
-                }
-            }
+//        }else{
+//            $new_num=$res['goods_num']+$goods_num;
+//            //echo $new_num;exit;
+//            if($new_num>$store){
+//                $response=[
+//                    'errcode'=>50001,
+//                    'msg'=>'库存不足'
+//                ];
+//                return $response;
+//            }else{
+//                $updateWhere=[
+//                    'goods_num'=>$new_num,
+//                    'add_time'=>time()
+//                ];
+//                $res2=CartModel::where($where)->update($updateWhere);
+//                if($res2){
+//                    $response=[
+//                        'errcode'=>0,
+//                        'msg'=>'添加成功'
+//                    ];
+//                    return $response;
+//                }else{
+//                    $response=[
+//                        'errcode'=>5001,
+//                        'msg'=>'添加失败'
+//                    ];
+//                    return $response;
+//                }
+//            }
         }
     }
 }
