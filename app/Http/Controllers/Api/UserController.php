@@ -6,42 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use function GuzzleHttp\Psr7\str;
 class UserController extends Controller{
-//    public function register(){
-//        $email = $_POST['email'];
-//
-//        $w = UserModel::where(['email'=>$email])->first();
-//        if($w){
-//        die("用户名已存在");
-//
-//        }
-//        $pass=$_POST['pass'];
-//        $pass2=$_POST['pass2'];
-//        if($pass !==$pass2){
-//        die( '密码必须保持一致');
-//        };
-//        $nick_name=$_POST['nick_name'];
-//        $age=$_POST['age'];
-//        $pass = password_hash($pass,PASSWORD_BCRYPT);
-//        $data=[
-//        'nick_name' => $nick_name,
-//        'email' =>$email,
-//        'pass'=>$pass,
-//        'age'=>$age,
-//        'add_time' =>time()
-//        ];
-//        $id=UserModel::insertGetId($data);
-//        if($id){
-//        $response=[
-//            'errno'=>0,
-//            'msg'=>'注册成功'
-//        ];
-//        }else{
-//        $response=[
-//            'erron'=>5001,
-//            'msg'=>'注册失败'
-//        ];
-//        }
-//return $response;
 
     public function register(){
         $uname=trim($_POST['nick_name']);
@@ -125,30 +89,7 @@ class UserController extends Controller{
         return json_encode($data);
     }
     public function login(){
-//        $pass=$_POST['pass'];
-//        $email=$_POST['email'];
-//        $id = UserModel::where(['email'=>$email])->first();
-//        $ktoken='token:u:'.$id['uid'];
-//        $token=str_random(32);
-//        Redis::hSet($ktoken,'app:token',$token);
-//        Redis::expire($ktoken,3600*24*3);
-//        if($id){
-//            $response=[
-//                'errcode'=>0,
-//                'msg'=>'登陆成功',
-//                'token'=>$token,
-//                'uid'=>$id['uid'],
-//                'email'=>$id['email'],
-//            ];
-//        } else {
-//            $response=[
-//                'errno'=>5001,
-//                'msg'=>'用户密码不正确'
-//            ];
-//
-//        }
-//        return $response;
-//    }
+
         header("Access-Control-Allow-Origin:*");
         header('Access-Control-Allow-Methods:GET,POST, OPTIONS');
         header('Access-Control-Allow-Headers:x-requested-with, content-type');
