@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'request10times' => Request10times::class,
         'check.login'=>CheckLogin::class,
+        'check.logintoken'=>CheckLoginToken::class,
     ];
 
     /**
