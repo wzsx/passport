@@ -8,7 +8,7 @@ use function GuzzleHttp\Psr7\str;
 class UserController extends Controller{
 
     public function register(){
-        $uname=trim($_POST['nick_name']);
+        $uname=trim($_POST['name']);
         if(empty($uname)){
             $data=[
                 'errcode'=>6001,
