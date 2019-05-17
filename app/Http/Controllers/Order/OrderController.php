@@ -10,7 +10,7 @@ use App\Model\GoodsModel;
 class OrderController extends Controller
 {
     public function createOrder(){
-        $user_id=$_POST['user_id'];
+        $user_id=$_POST['uid'];
         if(empty($user_id)){
             $data=[
                 'errcode'=>4001,
@@ -25,7 +25,7 @@ class OrderController extends Controller
         $order_data=[
             'order_num'=>$order_num,
             'goods_id'=>$goods_id,
-            'user_id'=>$user_id,
+            'uid'=>$user_id,
         ];
         $res=OrderModel::insert($order_data);
         if($res){
@@ -48,7 +48,7 @@ class OrderController extends Controller
         return $res_data;
     }
     public function orderShow(){
-        $user_id=$_POST['user_id'];
+        $user_id=$_POST['uid'];
         if(empty($user_id)){
             $data=[
                 'errcode'=>4001,
@@ -57,7 +57,7 @@ class OrderController extends Controller
             return $data;
         }
         $order_where=[
-            'user_id'=>$user_id,
+            'uid'=>$user_id,
             'is_delete'=>1,
         ];
         $order_data=OrderModel::join('api_goods','api_goods.goods_id','=','api_order.goods_id')->where($order_where)->get();
