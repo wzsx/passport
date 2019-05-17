@@ -28,3 +28,4 @@ Route::post('/goods/salenum','Goods\GoodsController@salevalue');
 Route::post('/goods/details','Goods\GoodsController@details');
 Route::post('/user/cart','Cart\CartController@cartShow');//购物车数据接口
 Route::post('/cart/join','Cart\CartController@cartJoin');//添加到购物车
+Route::post('/order/add','Order\OrderController@createOrder');//生成(添加)订单数据接口
