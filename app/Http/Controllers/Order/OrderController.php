@@ -60,7 +60,7 @@ class OrderController extends Controller
             'uid'=>$user_id,
             'is_delete'=>1,
         ];
-        $order_data=OrderModel::join('api_goods','api_goods.goods_id','=','api_order.goods_id')->where($order_where)->get();
+        $order_data=OrderModel::join('api_goods,api_cart','api_goods.goods_id','=','api_order.goods_id','=','api_cart.goods_id')->where($order_where)->get();
         return $order_data;
     }
 }
