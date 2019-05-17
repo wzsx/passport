@@ -21,11 +21,13 @@ class OrderController extends Controller
         $goods_id=$_POST['goods_id'];
         $cart_id=$_POST['cart_id'];
         $goods_num=$_POST['goods_num'];
+        $total_prices=$_POST['total_prices'];
         $order_num='three'.time();
         $order_data=[
             'order_num'=>$order_num,
             'goods_id'=>$goods_id,
             'uid'=>$user_id,
+            'total_prices'=>$total_prices
         ];
         $res=OrderModel::insert($order_data);
         if($res){
