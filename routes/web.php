@@ -30,3 +30,6 @@ Route::post('/user/cart','Cart\CartController@cartShow');//购物车数据接口
 Route::post('/cart/join','Cart\CartController@cartJoin');//添加到购物车
 Route::post('/order/add','Order\OrderController@createOrder');//生成(添加)订单数据接口
 Route::post('/order/show','Order\OrderController@orderShow');//订单数据接口
+
+Route::post('/pay/alipay/notify','Pay\AlipayController@notify');        //支付宝支付 异步通知回调
+Route::get('/pay/alipay/return','Pay\AlipayController@aliReturn');        //支付宝支付 同步通知回调

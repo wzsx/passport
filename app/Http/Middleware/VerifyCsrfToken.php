@@ -28,6 +28,7 @@ class VerifyCsrfToken extends Middleware
         '/userinfo/',
         '/reg',
         '/login',
+        '/pay/*',
 
 
 
