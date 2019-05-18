@@ -171,7 +171,7 @@ class AlipayController extends Controller
         file_put_contents('logs/alipay_notify',$log_str,FILE_APPEND);
         echo 'success';
 
-        //TODO 验签 更新订单状态
+        //TODO 验签 更新订单状态 2
     }
 
     /**
