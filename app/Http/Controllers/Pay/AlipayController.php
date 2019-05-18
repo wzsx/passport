@@ -36,9 +36,9 @@ class AlipayController extends Controller
      * 订单支付
      * @param $oid
      */
-    public function pay()
+    public function pay($oid)
     {
-        $oid=$_POST['order_id'];
+//        $oid=$_POST['order_id'];
         //验证订单状态 是否已支付 是否是有效订单
         $order_info = OrderModel::where(['order_id'=>$oid])->first()->toArray();
 //        print_r($order_info);die;
